@@ -6,33 +6,58 @@ namespace Exercise4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your Login and Password!");
-            var login = Console.ReadLine();
-            var password = Console.ReadLine();
-            Console.WriteLine("\nNow repeat your Login and Password.\nIf it's will be correct we will play a little game.");
-            var logRepeat = Console.ReadLine();
-            var pasRepeat = Console.ReadLine();
-            logPassCheck(login, password, logRepeat, pasRepeat);
+            bool logCheck = false;
+            short i = 0;
+            Console.WriteLine("Enter your Login and Password!\nIf it's will be correct we will play a little game.");
+            string login, password;
+            logPasInput(out login, out password);
+
+            while (logCheck == false && i < 3)
+            {
+                logPasCheck(ref logCheck, ref i, ref login, ref password);
+            }
+
+            if (i == 3) Console.WriteLine("Sorry it was your third try.\nGoodbye.");
+
+            game(logCheck);
+
             Console.ReadKey();
 
         }
 
-        private static void logPassCheck(string login, string password, string logRepeat, string pasRepeat)
+        private static void logPasCheck(ref bool logCheck, ref short i, ref string login, ref string password)
         {
-            if (logRepeat == login && pasRepeat == password)
+            if (login == "root" && password == "GeekBrains")
             {
-                Console.WriteLine("\nLogin and Password are correct.\nNow let's play the game.\nTry to guess the ridlle and write answer.");
-                game();
+                Console.WriteLine("Good, now guess the riddle.");
+                logCheck = true;
             }
-            else Console.WriteLine("\nSorry your Login and Password didn't match.");
+            else
+            {                
+                i++;
+                Console.WriteLine("Nope, try again.");
+                logPasInput(out login, out password);
+            }
         }
 
-        private static void game()
+        private static void logPasInput(out string login, out string password)
         {
-            Console.WriteLine("\nThe same color at winter and summer. Enter your answer (p**e or sp**ce)");
-            var answer = Console.ReadLine();
-            if (answer == "pine" || answer == "spruce") Console.WriteLine("\nYey! Your win!");
-            else Console.WriteLine("\nWell, you tried.");
+            login = Console.ReadLine();
+            password = Console.ReadLine();
         }
+
+        private static void game(bool logCheck)
+        {
+            if (logCheck == true)
+            {
+                Console.WriteLine("\nThe same color at winter and summer. Enter your answer (p**e or sp**ce)");
+                var answer = Console.ReadLine();
+                if (answer == "pine" || answer == "spruce") Console.WriteLine("\nYey! Your win!");
+                else Console.WriteLine("\nWell, you tried.");
+            }
+        }
+
     }
+
+        
 }
