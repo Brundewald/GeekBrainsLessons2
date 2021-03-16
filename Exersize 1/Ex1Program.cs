@@ -1,8 +1,10 @@
 ﻿using System;
 
+/*Created by Nikita Mialkin for GeekBrains*/
+
 namespace Exersize_1
 {
-    class Program
+    class Ex1Program
     {
         static void Main(string[] args)
         {
@@ -14,12 +16,12 @@ namespace Exersize_1
             Console.WriteLine("Please, enter third number:\n");
             int t_n = Convert.ToInt32(Console.ReadLine());
 
-            NewMethod(f_n, s_n, t_n);
+            lesserFound(f_n, s_n, t_n);
             
             Console.ReadKey();
         }
 
-        private static int NewMethod(int f_n, int s_n, int t_n)
+        private static int lesserFound(int f_n, int s_n, int t_n)
         {
             if (f_n < s_n && f_n < t_n) Console.WriteLine($"The lesser number is: {f_n}");
             else if (s_n < f_n && s_n < t_n) Console.WriteLine($"The lesser number is: {s_n}");
