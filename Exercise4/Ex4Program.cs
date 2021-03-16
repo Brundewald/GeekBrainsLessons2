@@ -7,6 +7,7 @@ namespace Exercise4
         static void Main(string[] args)
         {
             bool logCheck = false;
+
             short i = 0;
             Console.WriteLine("Enter your Login and Password!\nIf it's will be correct we will play a little game.");
             string login, password;
@@ -33,7 +34,7 @@ namespace Exercise4
                 logCheck = true;
             }
             else
-            {                
+            {
                 i++;
                 Console.WriteLine("Nope, try again.");
                 logPasInput(out login, out password);
@@ -45,19 +46,37 @@ namespace Exercise4
             login = Console.ReadLine();
             password = Console.ReadLine();
         }
-
-        private static void game(bool logCheck)
-        {
-            if (logCheck == true)
+            private static void logPassCheck(string login, string password, int i, bool logCheck)
             {
-                Console.WriteLine("\nThe same color at winter and summer. Enter your answer (p**e or sp**ce)");
-                var answer = Console.ReadLine();
-                if (answer == "pine" || answer == "spruce") Console.WriteLine("\nYey! Your win!");
-                else Console.WriteLine("\nWell, you tried.");
+                if (login == "root" && password == "GeekBrains")
+                {
+                    i = 4;
+                    logCheck = true;
+                    Console.WriteLine("\nLogin and Password are correct.\nNow let's play the game.\nTry to guess the ridlle and write answer.");
+
+                }
+                else {
+                    Console.WriteLine("\nSorry your Login and Password didn't match. Try again");
+                    i++;
+                    return;
+                }
+
             }
-        }
+        
+
+            private static void game(bool logCheck)
+            {
+                if (logCheck == true)
+                {
+                    Console.WriteLine("\nThe same color at winter and summer. Enter your answer (p**e or sp**ce)");
+                    var answer = Console.ReadLine();
+                    if (answer == "pine" || answer == "spruce") Console.WriteLine("\nYey! Your win!");
+                    else Console.WriteLine("\nWell, you tried.");
+                }
+            }
 
     }
+}
 
         
-}
+
