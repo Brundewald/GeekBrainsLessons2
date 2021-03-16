@@ -2,7 +2,7 @@
 
 /*Created by Nikita Mialkin for GeekBrains*/
 
-namespace Exercise4
+namespace Exercise_4
 {
     class Ex4Program
     {

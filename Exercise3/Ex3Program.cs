@@ -2,7 +2,7 @@
 
 /*Created by Nikita Mialkin for GeekBrains*/
 
-namespace Exercise3
+namespace Exercise_3
 {
     class Ex3Program
     {
