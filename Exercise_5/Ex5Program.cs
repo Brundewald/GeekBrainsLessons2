@@ -4,7 +4,7 @@
 
 namespace Exercise_5
 {
-    class Program
+    class Ex5Program
     {
         static void Main(string[] args)
         {
